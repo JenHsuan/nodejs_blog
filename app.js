@@ -24,11 +24,9 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Edit by Sean
-//migrated to route/index.js
-//app.use('/', routes);
-//app.use('/users', users);
-routes(app);
+app.use('/', routes);
+app.use('/users', users);
+//routes(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
