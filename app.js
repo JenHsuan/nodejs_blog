@@ -1,3 +1,4 @@
+//說明module
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -13,6 +14,7 @@ var routes = require('./routes/index');
 var app = express();
 
 // view engine setup
+//說明視圖系統
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -26,6 +28,8 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+//說明路由系統
 //app.use('/', routes);
 //app.use('/users', users);
 routes(app);
