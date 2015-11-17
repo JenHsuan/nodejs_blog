@@ -4,9 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
+var setting = require('./models/setting');
 var routes = require('./routes/index');
-var users = require('./routes/users');
+//var users = require('./routes/users');
 
 var app = express();
 
@@ -24,9 +26,9 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
-//routes(app);
+//app.use('/', routes);
+//app.use('/users', users);
+routes(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -34,6 +36,19 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 });
+
+app.use(session({
+    secret: setting.secret,
+    key: setting.db,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 30
+    },
+    store: new MongoStore({
+        db: setting.db,
+        host: setting.host,
+        port: setting.port
+    })
+}));
 
 // error handlers
 

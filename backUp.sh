@@ -11,5 +11,6 @@ sudo rm ~/.ssh/known_hosts
 read -p "Please input destination IP:  " IP       # 提示使用者輸入
 
 pwd=$(pwd)
+#back up files to server
 scp -o "StrictHostKeyChecking no" -prd $pwd/. ubuntu@${IP}:/home/ubuntu/myhomepage 
 exit 0
