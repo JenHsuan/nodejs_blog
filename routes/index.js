@@ -1,4 +1,6 @@
 var express = require('express');
+var post = require('../models/post');
+//var setting = require('../models/setting');
 var router = express.Router();
 
 /* GET home page. */
@@ -15,4 +17,10 @@ module.exports = function(app) {
             title: 'Express'
         });
     });
+    app.get('/blog_post', function(req, res) {
+        res.render('/blog_post', {
+            title: 'post'
+        });
+    });
+    app.post('/blog_post', function(req, res) {});
 };

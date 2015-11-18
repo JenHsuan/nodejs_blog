@@ -12,5 +12,5 @@ read -p "Please input destination IP:  " IP       # 提示使用者輸入
 
 pwd=$(pwd)
 #back up files to server
-scp -o "StrictHostKeyChecking no" -prd $pwd/. ubuntu@${IP}:/home/ubuntu/myhomepage 
+scp -o "StrictHostKeyChecking no" -prd $pwd/. ubuntu@192.168.158.140:/home/ubuntu/myhomepage 
 exit 0
