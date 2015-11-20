@@ -9,7 +9,7 @@ function Post(name, title, post) {
 module.exports = Post;
 
 Post.save = function(callback) {
-    //準備想插入的物件
+    //準備想儲存的物件
     //date, time, post object
     var date = new Date();
     var time = {
@@ -66,6 +66,7 @@ Post.get = function(name, callback) {
             //查詢集合
             collection.find({
                     "name": name
+
                 })
                 //依時間排序
                 .sort({

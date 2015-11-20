@@ -10,17 +10,23 @@ var MongoStore = require('connect-mongo')(session);
 var setting = require('./models/setting');
 var routes = require('./routes/index');
 //var users = require('./routes/users');
-
 var app = express();
 
-// view engine setup
-//說明視圖系統
+//登錄註冊功能
+var flash = require('connect-flash');
+
+// view engine setup, 說明視圖系統
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+//將資訊寫入flash
+app.use(flash());
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
+
+//用來解析req.body
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false

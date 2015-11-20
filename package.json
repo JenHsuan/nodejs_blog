@@ -18,6 +18,7 @@
         "connect-mongo": "0.4.1",
         "jsonwebtoken": "*",
         "kerberos": "~0.0",
-        "mongoose": "*"
+        "mongoose": "*",
+        "connect-flash": "0.1.1"
     }
 }
