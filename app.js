@@ -63,4 +63,5 @@ app.use(function(err, req, res, next) {
 module.exports = app;
 
 //listen port 8080
+console.log("start listening");
 app.listen(8080);
