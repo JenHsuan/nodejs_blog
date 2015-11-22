@@ -47,18 +47,18 @@ app.use(function(req, res, next) {
     next(err);
 });
 
-app.use(session({
-    secret: setting.secret,
-    key: setting.db,
-    cookie: {
-        maxAge: 1000 * 60 * 60 * 24 * 30
-    },
-    store: new MongoStore({
-        db: setting.db,
-        host: setting.host,
-        port: setting.port
-    })
-}));
+//app.use(session({
+//    secret: setting.secret,
+//    key: setting.db,
+//    cookie: {
+//        maxAge: 1000 * 60 * 60 * 24 * 30
+//    },
+//    store: new MongoStore({
+//        db: setting.db,
+//        host: setting.host,
+//        port: setting.port
+//    })
+//}));
 
 // error handlers
 

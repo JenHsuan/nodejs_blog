@@ -1,7 +1,23 @@
-var TvController = require('./TvController.js');
+var post = require("./post");
 
-TvController.openTv();
+post.get(function(err, data) {
+    data.forEach(function(post, index) {
+        console.log(post.name);
+    });
+});
+post.edit("allen", "2015-11-22", "test", function(err, data) {
+    console.log(data.post);
+});
 
-var NewTvController = new TvController(["new", "cartoons", "sports"]);
+post.update("allen", "2015-11-22", "test", "update", function(err, data) {
+    console.log(data);
+});
 
-NewTvController.selectChanel(0);
+var newPost = new post("allen", "tt", "123");
+newPost.save(function(err, data) {
+
+});
+
+post.remove("allen", "tt", "123", function(err, data) {
+    console.log(data);
+});

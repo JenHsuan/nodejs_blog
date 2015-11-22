@@ -1,5 +1,5 @@
 //對mongodb的操作
-var mongodb = require('../models/db');
+//var mongodb = require('../models/db');
 
 function Post(name, title, post) {
     this.name = name;

@@ -13,6 +13,7 @@ TvController.closeTv = function(callback) {
     if (callback)
         callback();
 };
+
 function watchingTv(callback) {
     setTimeout(function() {
         console.log('watching');
@@ -87,3 +88,11 @@ var SonyTvController = new TvController(["news", "cartoons", "sports"], "Sony");
 var SamsungTvController = new TvController(["news", "cartoons", "sports"], "Samsung");
 SonyTvController.open();
 SamsungTvController.open();
+
+var TvController = require('./TvController.js');
+
+TvController.openTv();
+
+var NewTvController = new TvController(["new", "cartoons", "sports"]);
+
+NewTvController.selectChanel(0);
